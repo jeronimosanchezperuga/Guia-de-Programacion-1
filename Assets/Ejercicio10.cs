@@ -26,17 +26,21 @@ public class Ejercicio10 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (horaActual < HoraValidaMin || horaActual > HoraValidaMax)
+        if (horaActual >= HoraValidaMin || horaActual < HoraValidaMax)
+        {
+            if (horaActual >= HoraApertura && horaActual < HoraCierre)
+            {
+                estaAbierto = true;
+            }
+            else
+            {
+                estaAbierto = false;
+            }
+            Debug.Log("Estacionamiento abierto: " + estaAbierto);
+        } else
         {
             Debug.Log("Ha ingresado una hora incorrecta");
-        } else if (horaActual >= HoraApertura && horaActual < HoraCierre)
-        {
-            estaAbierto = true;        }
-        else
-        {
-            estaAbierto = false;            
         }
-        Debug.Log("Estacionamiento abierto: " + estaAbierto);
     }
 
     // Update is called once per frame
